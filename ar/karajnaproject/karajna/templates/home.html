@@ -1,0 +1,401 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<!-- box-4 for main-search -->
+
+<form action="" method="get">
+    <div class="card" style="width:px">
+    <div class="card-body" style="    background: -webkit-linear-gradient(top,#fff 0%,#f1f1f1 100%);">
+      <a href=""style="text-decoration: none;"><h4 class="card-title" style="text-align:right;" >البحث عن سيارة</h4></a><hr>
+      <div class="card-text">
+
+          <div class="row">
+                    
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_brand">الماركة:</label></label>
+                <div class="control"><select name="brand" id="id_brand">
+ 
+
+ <option value="" selected="">---------</option>
+
+  <option value="1">DFSK</option>
+
+  <option value="2">Opel- اوبل</option>
+
+  <option value="3">Jaguar - جاكوار</option>
+
+  <option value="4">Daewoo - دايو</option>
+
+  <option value="5">Citroen - سيتروين</option>
+
+  <option value="6">BMW - بي ام دبليو</option>
+
+  <option value="7">Alfa Romeo - ألفا روميو</option>
+
+  <option value="8">Audi - اودي</option>
+
+  <option value="9">BYD - بي واي دي</option>
+
+  <option value="10">Cadillac - كاديلك</option>
+
+  <option value="11">Volvo - فولفو</option>
+
+  <option value="12">Toyota - تويوتا</option>
+
+  <option value="13">Suzuki - سوزوكي</option>
+
+  <option value="14">Subaru - سوبارو</option>
+
+  <option value="15">Skoda - سكودا</option>
+
+  <option value="16">Skoda - سكودا</option>
+
+  <option value="17">Porsche - بورش</option>
+
+  <option value="18">Peugeot - بيجو</option>
+
+  <option value="19">Mitsubishi - ميتسوبيشي</option>
+
+  <option value="20">Volkswagen - فولكس فاغن</option>
+
+  <option value="21">Renault - رينو</option>
+
+  <option value="22">Ford - فورد</option>
+
+  <option value="23">Mercedes-Benz - مارسيدس بينز</option>
+
+  <option value="24">Land Rover - لاند روفر</option>
+
+  <option value="25">Lancia - لاسيا</option>
+
+  <option value="26">Lada - لادا</option>
+
+  <option value="27">Kia - كيا</option>
+
+  <option value="28">Jeep - جيب</option>
+
+  <option value="29">Isuzu - ايزوز</option>
+
+  <option value="30">Infiniti - انفينتي</option>
+
+  <option value="31">Hyundai - هيونداي</option>
+
+  <option value="32">Hummer - هامر</option>
+
+  <option value="33">Honda - هوندا</option>
+
+  <option value="34">Geely - جيلي</option>
+
+  <option value="35">Fiat - فيات</option>
+
+  <option value="36">Dodge - دودج</option>
+
+  <option value="37">Daihatsu - ديهاستو</option>
+
+  <option value="38">Dacia - داسيا</option>
+
+  <option value="39">Chery - شيري</option>
+
+  <option value="40">Chevrolet - شافورلت</option>
+
+  <option value="41">Corvette - كورفت</option>
+
+</select>
+</div>
+                           
+              </div>
+            </div>
+<div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_version">الموديل:</label></label>
+
+                <div class="control">
+<select id="id_version" name="version">
+<option value="" selected="">---------</option>
+</select>
+
+
+</div>
+                           
+              </div>
+            </div>
+</div>
+                 
+   <div class="row">
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_price__lte">السعر(ل.س): الى</label></label>
+                <div class="control"><select name="price__lte" id="price__lte">
+  <option value="" selected="">---------</option>
+
+  <option value="500000">500.000</option>
+  <option value="1000000">1.000.000</option>
+  <option value="2000000">2.000.000</option>
+  <option value="3000000">3.000.000</option>
+  <option value="4000000">4.000.000</option>
+  <option value="5000000">5.000.000</option>
+  <option value="6000000">6.000.000</option>
+  <option value="8000000">8.000.000</option>
+  <option value="10000000">10.000.000</option>
+  <option value="12000000">12.000.000</option>
+  <option value="14000000">14.000.000</option>
+  <option value="16000000">16.000.000</option>
+  <option value="18000000">18.000.000</option>
+  <option value="20000000">20.000.000</option>
+  <option value="25000000">25.000.000</option>
+  <option value="30000000">30.000.000</option>
+  <option value="40000000">40.000.000</option>
+  <option value="50000000">50.000.000</option>
+  <option value="60000000">60.000.000</option>
+
+
+</select>
+
+</div>
+                           
+              </div>
+            </div>
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_production_date__gte">تاريخ الانتاج:  من</label></label>
+                <div class="control">{{  filter.form.production_date__gte  }}
+</div>
+                           
+              </div>
+            </div></div>
+
+           <div class="row">
+                  
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_distance__lte">عداد المسافة(كم): الى</label></label>
+                <div class="control"><select name="distance__lte" id="id_distance__lte">
+  <option value="" selected="">---------</option>
+
+  <option value="1000">1.000</option>
+  <option value="5000">5.000</option>
+  <option value="7000">7.000</option>
+  <option value="10000">10.000</option>
+  <option value="20000">20.000</option>
+  <option value="30000">30.000</option>
+  <option value="40000">40.000</option>
+  <option value="50000">50.000</option>
+  <option value="60000">60.000</option>
+  <option value="70000">70.000</option>
+  <option value="80000">80.000</option>
+  <option value="90000">90.000</option>
+  <option value="100000">100.000</option>
+  <option value="120000">120.000</option>
+  <option value="140000">140.000</option>
+  <option value="160000">160.000</option>
+  <option value="180000">180.000</option>
+  <option value="200000">200.000</option>
+
+</select>
+
+
+</div>
+                           
+              </div>
+            </div>
+
+               
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_fuel_type">نوع الوقود:</label></label>
+                <div class="control">{{  filter.form.fuel_type  }}</div>
+                           
+              </div>
+            </div></div>
+<div class="row">
+                  
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label"><label for="id_car_body">بدن السيارة:</label></label>
+                <div class="control">{{  filter.form.car_body  }}
+</div>
+                           
+              </div>
+            </div>
+
+               
+            <div class="col text-right">
+                                 <button id="search"class="btn-lg btn-warning"type="submit"  ><span >بحث</span>
+            </div>
+
+         </div>
+    </div>
+    </div>
+    </div>
+
+<br><br><h3 class="title-main">نتائج البحث </h3> <hr>
+    
+
+<div class="container"></div>
+    <div class="card"  >
+         {% for obj in filter.qs %}   
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-xs-2 col-md-2">
+                        <!--<img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew">-->
+                        <img  src="{{ obj.image1.url }}" width=200px hight=200px>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'cardata' obj.id %}"><h4 class="product-name"><strong>{{ obj.brand }}</strong></h4></a>
+                        <h5><small>  اللون الخارجى :{{ obj.external_color }} , نوع الوقود :{{ obj.fuel_type }}  </small></h5>
+                        <h5><small> ناقل الحركة :{{obj.motion_movement}} , فئة السيارة : {{ obj.class_car}}</small></h5>
+                    </div>
+                    <div class="col-xs-6 col-md-4 row">
+                        <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
+                            <h6><strong>{{ obj.price }} <span class="text-muted">ل.س</span></strong></h6>
+                        </div>
+
+                        <h5><small> {{ obj.distance }} كم</small></h5>
+                        
+                        <div class="col ">
+                            <h5><small>{{ obj.production_date }}</small></h5>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                
+            </div>
+                   {% endfor %}
+        </div>
+
+        <br>
+
+
+        
+
+</div>
+
+<!-- box-5 for VIP-ADD -->
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-6 boxy" >
+            <img src="/static/images/car-vip.png" alt="car-vip">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 boxy" >
+            <img src="/static/images/car-vip.png" alt="car-vip">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 boxy" >
+            <img src="/static/images/car-vip.png" alt="car-vip">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 boxy" >
+            <img src="/static/images/car-vip.png" alt="car-vip">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 boxy" >
+            <img src="/static/images/car-vip.png" alt="car-vip">
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 boxy" >
+            <img src="/static/images/car-vip.png" alt="car-vip">
+        </div>
+
+    </div>
+</div>
+
+
+<!-- box-6 for new-car -->
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-8 boxy" >
+            <img src="/static/images/new-cars.png" alt="new-cars">
+        </div>
+        <div class="col-md-4 boxy" >
+            <img src="/static/images/info.png" alt="info">
+            <br>
+        </div>
+    </div>
+</div>
+
+<!-- box-7 for quick search by mark -->
+<div class="container">
+    <br>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-md-8 boxy" >
+                <img src="/static/images/marks.png" alt="marks">
+            </div>
+            <div class="col-md-4 boxy" >
+            <br>
+        </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/static/js/car_form.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+var versions = {
+"1": [ {"value": 1,"name":"C32"},{ "value" : 2 , "name" :"C35" }],
+"2": [ {"value": 3,"name":"Astra"},{ "value" : 4 , "name" :"Combo" }],
+"3": [],
+"4": [ {"value": 5,"name":"Kalos"}],
+"5": [ {"value": 6,"name":"C1"},{ "value" : 7 , "name" :"C2" },{ "value" : 8 , "name" :"C3" },{ "value" : 9 , "name" :"C4" },{ "value" : 11 , "name" :"C5" }],
+"6": [ {"value": 12,"name":"114"},{ "value" : 13 , "name" :"116" },{ "value" : 14 , "name" :"118" },{ "value" : 15 , "name" :"120" },{ "value" : 16 , "name" :"123" },{ "value" : 17 , "name" :"240" },{ "value" : 18 , "name" :"340" },{ "value" : 19 , "name" :"440" },{ "value" : 20 , "name" :"550" }],
+
+"7": [ {"value": 21,"name":"Spider"}],
+"8": [ {"value": 22,"name":"A1"},{ "value" : 23 , "name" :"A2" },{ "value" : 24 , "name" :"A3" },{ "value" : 25 , "name" :"A4" },{ "value" : 26 , "name" :"A5" },{ "value" : 27 , "name" :"A6" },{ "value" : 28 , "name" :"A7" }],
+
+"9": [],
+"10": [],
+"11": [],
+"12": [ {"value": 29,"name":"Auris"}],
+"13": [],
+"14": [],
+"15": [ {"value": 30,"name":"Fabia"},{ "value" : 31, "name" :"Octavia" }],
+"16": [],
+"17": [],
+"18": [ {"value": 32,"name":"104"},{ "value" : 33 , "name" :"106" },{ "value" : 34 , "name" :"107" },{ "value" : 35 , "name" :"108" },{ "value" : 36 , "name" :"2008" },{ "value" : 37 , "name" :"204" },{ "value" : 38 , "name" :"205" },{ "value" : 39 , "name" :"206" },{ "value" : 40 , "name" :"207" },{ "value" : 41 , "name" :"208" },{ "value" : 42 , "name" :"3008" },{ "value" : 43 , "name" :"301" },{ "value" : 44 , "name" :"304" },{ "value" : 45 , "name" :"305" },{ "value" : 46 , "name" :"306" },{ "value" : 47 , "name" :"307" },{ "value" : 48 , "name" :"308" },{ "value" : 49 , "name" :"309" },{ "value" : 50 , "name" :"4007" },{ "value" : 51 , "name" :"4008" },{ "value" : 52 , "name" :"404" },{ "value" : 53 , "name" :"405" },{ "value" : 54 , "name" :"406" },{ "value" : 55 , "name" :"407" },{ "value" : 56 , "name" :"5008" },{ "value" : 57 , "name" :"504" },{ "value" : 58 , "name" :"505" },{ "value" : 59 , "name" :"508" },{ "value" : 60 , "name" :"604" },{ "value" : 61 , "name" :"605" },{ "value" : 62 , "name" :"607" },{ "value" : 63 , "name" :"806" },{ "value" : 64 , "name" :"807" }],
+"19": [ {"value": 65,"name":"Attrage"},{"value": 66,"name":"Eclipse"}],
+"20": [ {"value": 67,"name":"Caddy"},{ "value" : 68 , "name" :"Golf" }],
+"21": [],
+"22": [ {"value": 69,"name":"Escort"},{ "value" : 70 , "name" :"Focus" },{ "value" : 71 , "name" :"Galaxy" }],
+"23": [],
+"24": [],
+"25": [],
+"26": [],
+"27": [],
+"28": [],
+"29": [],
+"30": [],
+"31": [ {"value": 73,"name":"Civic"},{ "value" : 74 , "name" :"CR-V" }],
+"32": [],
+"33": [ {"value": 72,"name":"city"}],
+"34": [],
+"35": [],
+"36": [],
+"37": [],
+"38": [ {"value": 75,"name":"Duster"},{ "value" : 76 , "name" :"Lodgy" },{ "value" : 77 , "name" :"Logan" }],
+"39": [],
+"40": [],
+"41": []
+}
+$('#id_brand').change(function(){
+var selected = $(this).children(":selected").text();
+  $('#id_version').html('<option value="" selected="">---------</option>')
+
+  
+  $.each(versions[this.value], function(version) {
+     console.log(this);
+
+     $('#id_version').append('<option value="'+this.value +'">' +this.name +'</optoin>')
+  })
+})
+
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="hub hub-auth" dir="rtl">
+    <h1 class="title-main">التسجيل</h1>
+    <br>
+<form method="post" novalidate>
+    {% csrf_token %}
+     <div class="container  highlighted">
+          <div class="container-content" style="float:right; ">
+<br>
+    {% for field in form %}
+       <div class="part-line nonreview-only text">
+          <label style="float:right; "class="line-label">{{ field.label_tag }}</label>
+          <div class="control ">{{ field }}</div>
+       </div>
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      
+    {% endfor %}
+
+     
+	 <div class="part-line button-line">
+             <div class="control">
+                  <button style="float:right; " type="submit"class="btn btn-info" ><span class="button-text">تسجيل</span></button>
+             </div>
+         </div>		
+    </form>
+</div>
+</div>
+</div>
+<script>
+
+
+</script>
+
+
+
+<style>
+.hub .container {
+    position: relative;
+    zoom: 1;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 4px solid;
+    border-color: #d8d8d8 #d8d8d8 #bbb #d8d8d8;
+}
+.hub .container.highlighted {
+    background: #fbfbfb;
+}
+.hub .container .container-content {
+    position: relative;
+    zoom: 1;
+    padding: 14px 14px;
+}
+
+.title-secondary{width:70%;display:inline-block ; margin-bottom:4px ; margin-left:80px;}
+.container.highlighted{height:625px}
+
+.container{border:0}
+
+</style>
+{% endblock %}

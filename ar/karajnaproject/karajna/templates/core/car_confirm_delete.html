@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{%if request.user.is_authenticated  %}
+
+
+
+<h1  style=" text-align:right; color:#003468;">مسح اعلان سيارة  {{ car.brand }}</h1><hr>
+
+
+<form method="POST" action="">
+{% csrf_token %}
+<h3 style=" text-align:right;color:#003468;">
+هل انت متأكد من مسح هذا الاعلان ؟ 
+</h3>
+<input style="float:right;"class="btn btn-danger"type="submit" value=" نعم "/>
+
+<a style="color:#fff; float:right;margin-right:50px;"class="btn btn-info"href="{% url 'carlist' %}">لا </a>
+</form>
+{% endif %}
+
+
+{% endblock %}

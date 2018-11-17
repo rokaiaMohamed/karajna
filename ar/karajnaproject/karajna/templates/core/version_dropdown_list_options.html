@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for version in versions %}
+<option value="{{ version.pk }}">{{ version.name }}</option>
+{% endfor %}

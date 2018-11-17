@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+  <form method="post"  enctype="multipart/form-data" id="CarForm" data-versions-url="{% url 'ajax_load_versions' %} " novalidate>{% csrf_token %}  
+     <div class="progress three-steps noprint" >
+        <div id="one" class="step  active ">
+              <a   href="#step-1" class="number">
+                  <span class="fig">1</span>						
+              </a>
+              <a  href="#step-1" class="label">ادخال البارامترات</a>	
+              <div class="track">
+                  <span class="stride"></span>
+              </div>
+        </div>
+      
+       <div id="two" class="step ">
+              <a  href="#step-2" class="number">
+                  <span class="fig">2</span>						
+              </a>
+              <a   href="#step-2" class="label">تحميل الصور </a>	
+              <div class="track">
+                  <span class="stride"></span>
+              </div>
+       </div>
+          
+        <div id="three" class="step ">
+                <a  href="#step-3" class="number">
+                    <span class="fig">3</span>						
+                </a>
+                <span class="label">معلومات الاتصال المتاحة</span>	
+
+            
+        </div>
+     </div>
+
+
+<!----------------------------------------------------------------------------------------------------------------------------------->
+     <div id="step-1"  ><br>
+       <h1 class="title-main">ادخال البارامترات</h1><br>
+            
+             
+         <div class="expander active " data-name="main">
+          <div class="expander-title accordion active ">معلومات السيارة
+            <div class="expander-handle  " id="expMain">
+              <span class="icon"></span>
+            </div>
+          </div>
+
+
+         <div class="expander-content panel" style="display:block;">
+          <div class="row ">
+             {% for field in form %}    
+             {% if  forloop.counter < 6 %}
+        
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                           {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+              </div>
+
+                             
+            </div>
+            
+              {% endif %} 
+              {% endfor %}
+              
+          </div>
+
+          <div class="row ">
+             {% for field in form %}    
+             {% if  forloop.counter > 5 and forloop.counter < 11   %}
+        
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                           {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+              </div>
+                            
+            </div>
+            
+              {% endif %} 
+              {% endfor %}
+              
+          </div>
+
+          <div class="row dividers">
+             {% for field in form %}    
+             {% if  forloop.counter > 10 and forloop.counter < 16   %}
+        
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                            {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+              </div>
+                            
+            </div>
+
+            
+               {% endif %} 
+               {% endfor %}
+              
+          </div>
+
+           </div>
+         </div><br>
+
+<!--
+###################################################################################################################
+-->
+
+         <div class="expander closed" data-name="tech">
+          <div class="expander-title accordion active">معلومات تقنية
+            <div class="expander-handle">
+              <span class="icon"></span>
+            </div>
+          </div>
+         <div class="expander-content panel " style="display:block;">
+          <div class="row" >
+              {% for field in form %}    
+              {% if  forloop.counter > 15 and forloop.counter < 20  %}
+                
+                    
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                          {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+              </div>
+            </div>
+
+        
+                {% endif %} 
+                {% endfor %}        
+          </div>
+
+           <div class="row">
+              {% for field in form %}    
+              {% if  forloop.counter > 19 and forloop.counter < 23  %}
+                
+                    
+            <div class="col text-right">
+              <div class="part-line select">
+                <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                          {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+              </div>
+            </div>
+
+        
+                {% endif %} 
+                {% endfor %}        
+          </div>
+         </div>
+
+         </div><br> 
+
+<!--
+############################################################################################################################-->
+      
+         <div class="expander closed" data-name="eqstd" >
+          <div class="expander-title accordion">وسائل الراحة
+            <div class="expander-handle">
+              <span class="icon"></span>
+            </div>
+          </div>
+            
+     
+         <div class="expander-content panel">
+          <div class="checkbox-list">
+            <div class="row layout--columns-two" style="text-align:right;">
+                 {% for field in form %}   
+                 {% if  forloop.counter > 22 and forloop.counter < 40    %}
+              <div class=" col-md-6 column first">
+                 <ul class="checklist">
+                    <li class="checklist-item">
+                       <label >
+	                         <span  style="float: right; filter: invert(200%) hue-rotate(50deg) brightness(1.5);">{{field}}
+                           </span> {{ field.label_tag }}
+                       </label>
+				            </li>
+				    
+                  </ul>
+              </div>
+                  {% endif %} 
+                  {% endfor %}
+
+
+                  {% for field in form %}    
+                  {% if  forloop.counter > 40  and forloop.counter < 72  %}
+      
+              <div class="col-md-6 column last" style="text-align:right;">
+                 <ul class="checklist">
+                    <li class="checklist-item">
+                       <label >	
+                           <span  style="float: right; filter: invert(200%) hue-rotate(50deg) brightness(1.5);">
+		                          {{ field }} 
+                           </span>{{ field.label_tag }}	      
+                       </label>			    
+                    </li>		   
+                  </ul>	
+              </div>
+                  {% endif %} 
+                  {% endfor %}
+            </div>
+         </div>
+       </div>
+         </div><br><br>
+      
+<button  class="btn-info btn" id="next_btn1" onclick="next_step1()" type="button" ><a class="button-text"> استمرار</a></button>
+              
+       
+    </div>
+<!--
+#############################################################################################################
+-->
+     
+     <div id="step-2" >
+        <br>
+        <h1 class="title-main">تحميل الصور</h1> <hr>  
+
+        <div id="image1" class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 71 and forloop.counter < 73  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+            </div>
+                          {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            
+        </div><hr>
+
+        <div id="image2"  class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 72 and forloop.counter < 74  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                          {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                          
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            <hr>
+        </div>
+        
+        <div id="image3" class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 73 and forloop.counter < 75  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                          {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                          
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            <hr>
+        </div>
+
+       <div id="image4" class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 74 and forloop.counter < 76  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                          {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                          
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            <hr>
+        </div>
+
+      <div id="image5" class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 75 and forloop.counter < 77  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                            {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                          
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            <hr>
+        </div>
+{% if user.groups.count %}
+
+       <div id="image6" class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 76 and forloop.counter < 78  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                            {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                          
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            <hr>
+        </div>
+
+      <div id="image7" class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 77 and forloop.counter < 79  %}
+      
+          <div class="col text-right">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+                <div class="control" class="select-value">{{ field }}</div>
+                            {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                           
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            <hr>
+        </div>
+{% endif %}
+         <div class="part-line noprint no-label button-line">
+         <div class="control">
+                            <button class="btn button-right" id="pre_btn1" onclick="prev_step1()" >
+                                رجوع
+                            </button>
+       <button  class="btn-info btn"  id="next_btn2" name="next" onclick="next_step2()" type="button" ><span class="button-text">استمرار</span>
+         </div>
+       </div>
+
+
+      </div>
+   
+     <div id="step-3" >
+        <br>
+        <h1 class="title-main">معلومات اضافية</h1><br>
+
+
+        <div class="row">
+               {% for field in form %}    
+               {% if  forloop.counter > 78   %}
+      
+          <div class="col" style="text-align:right;">
+            <div class="part-line select">
+              <label class="line-label" >{{ field.label_tag }}</label>
+              <div class="control" class="select-value">{{ field }}</div>
+                            {% if form.errors %}
+                               <h6 style="color: red;">{{ field.errors }}</h6>
+                            {% endif %}
+            </div>
+                          
+          </div>
+
+          
+                 {% endif %} 
+                 {% endfor %}
+            
+        </div>
+
+       <div class="part-line noprint no-label button-line">
+         <div class="control">
+                            <button type="button" class="btn button-right" id="pre_btn2" onclick="prev_step2()" ><span > رجوع</span>
+                                
+                            
+
+       <button  class="btn btn-success"  type="submit" ><span class="button-text">انتهاء</span>
+         </div>
+       </div>
+
+
+       </div>
+     </form>
+   </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/static/js/car_form.js"></script>
+
+
+<style>
+textarea {
+  width: 200px;
+  height: 100px;
+}</style>
+{% endblock %} 

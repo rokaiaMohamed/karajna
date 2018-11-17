@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+<h2 style="text-align:right;color:#003468;">انشر اعلانك بسهولة </h2><br>
+<p style="text-align:right;">شكرا لاختيارك موقع كراجنا </p><br>
+<p  style="text-align:right;" >في دقائق معدودة ، تستطيع أن تعرض سيارتك للبيع .</p><br>
+
+{% if user.is_authenticated %}
+<a href=" {% url 'car_add' %}"><button  class="btn btn-info"style="margin-left:1000px">اضف اعلانك</button></a>
+{% else %}
+<a href="{% url 'login' %}"><button  class="btn btn-info"style="margin-left:1000px">اضف اعلانك</button></a>
+{% endif %}
+</div>
+{% endblock %}

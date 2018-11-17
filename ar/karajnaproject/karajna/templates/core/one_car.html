@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h3 style="text-align:right;color: #003468;" >{{onecar}}</h3><br>
+    <div class="card" style="width:px">
+    <div  style="background: -webkit-linear-gradient(top,#fff 0%,#f1f1f1 100%); height:42px;">
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#data" role="tab" data-toggle="tab">بيانات السيارة</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#technical" role="tab" data-toggle="tab">معلومات تقنية </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#comfortable" role="tab" data-toggle="tab">وسائل الراحة</a>
+  </li>
+
+</ul>
+</div>
+</div>
+<!-- Tab panes -->
+<br>
+<div class="tab-content" style="text-align:right; margin-right:50px" >
+  <div role="tabpanel" class="tab-pane fade in active show" id="data">
+
+ <div class="row">
+   <div class="col">
+    <div class="row"><h3 style="text-align:right;color: #003468;" >بيانات السيارة</h3></div><br><br>
+    <div class="row" style="color: #003468;">السعر</div><br>
+    <div class="row" style="color: #003468;">عداد المسافة </div><br>
+    <div class="row" style="color: #003468;">اللون الخارجى </div><br>
+    <div class="row" style="color: #003468;">اللون الداخلى</div><br>
+    <div class="row" style="color: #003468;"> تاريخ الانتاج</div><br>
+    <div class="row" style="color: #003468;"> العنوان الاساسى</div><br>
+    <div class="row" style="color: #003468;">العنوان الاضافى </div><br>
+    <div class="row" style="color: #003468;"> عدد المقاعد</div><br>
+    <div class="row" style="color: #003468;"> الكفالة</div><br>
+    <div class="row" style="color: #003468;">ناقل الحركة </div><br>
+    <div class="row" style="color: #003468;">فئة السيارة </div><br>
+    <div class="row" style="color: #003468;"> نظام الدفع </div><br>
+    <div class="row" style="color: #003468;"> بدن السيارة</div><br>
+
+   </div>
+
+
+   <div class="col"> 
+    <div class="row"></div><br><br><br><br>
+    <div class="row">{{onecar.price}}</div><br>
+    <div class="row">{{onecar.distance}}</div><br>
+    <div class="row">{{onecar.external_color}}</div><br>
+    <div class="row">{{onecar.internal_color}}</div><br>
+    <div class="row">{{onecar.production_date}}</div><br>
+    <div class="row">{{onecar.basic_title}}</div><br>
+    <div class="row">{{onecar.extra_title}}</div><br>
+    <div class="row">{{onecar.seats_number}}</div><br>
+    <div class="row">{{onecar.guaranty}}</div><br>
+    <div class="row">{{onecar.motion_movement}}</div><br>
+    <div class="row">{{onecar.class_car}}</div><br>
+    <div class="row">{{onecar.payment_system}}</div><br>
+    <div class="row">{{onecar.car_body}}</div><br>
+    
+    
+   </div>
+
+
+
+  <div class="col"></div>
+  <div class="col">
+                         <img  src="{{ onecar.image1.url }}" width=400px hight=250px>
+<div class="row">
+
+{% if onecar.image2 %}<div class="col"><img  src="{{ onecar.image2.url }}" width=70px hight=70px></div>{% endif %}
+{% if onecar.image3 %}<div class="col"><img  src="{{ onecar.image3.url }}" width=70px hight=70px></div>{% endif %}
+{% if onecar.image4 %}<div class="col"><img  src="{{ onecar.image4.url }}" width=70px hight=70px></div>{% endif %}
+{% if onecar.image5 %}<div class="col"><img  src="{{ onecar.image5.url }}" width=70px hight=70px></div>{% endif %}
+
+{% if onecar.image6 %}<div class="col"><img  src="{{ onecar.image6.url }}" width=70px hight=70px></div>{% endif %}
+{% if onecar.image7 %}<div class="col"><img  src="{{ onecar.image7.url }}" width=70px hight=70px></div>{% endif %}
+
+</div><br>
+
+    <div class="card" style="width:px">
+    <div class="card-body" style="background: -webkit-linear-gradient(top,#fff 0%,#f1f1f1 100%);">
+      <a href=""style="text-decoration: none;"><h4 class="card-title" style="text-align:right; " >معلومات المعلن</h4></a><hr>
+    
+   <div class="card-text">
+<div class="row">
+<div class="col text-right" style="color: #003468;">الاسم </div>
+<div class="col text-right">{{onecar.name}}</div>
+</div><br>
+<div class="row">
+<div class="col text-right" style="color: #003468;">مجال العمل </div>
+<div class="col text-right">{{onecar.business}}</div>
+</div><br>
+<div class="row">
+<div class="col text-right" style="color: #003468;">الدولة </div>
+<div class="col text-right">{{onecar.country}}</div>
+</div><br>
+<div class="row">
+<div class="col text-right" style="color: #003468;">رقم التليفون </div>
+<div class="col text-right">{{onecar.phone_number}}</div>
+</div>
+    </div>
+  
+</div>
+</div></div></div>
+
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="technical">
+<div class="row">
+   <div class="col">
+    <div class="row"><h3 style="text-align:right;color: #003468;" >معلومات تقنية</h3></div><br>
+    <div class="row" style="color: #003468;">نوع الوقود</div><br>
+    <div class="row" style="color: #003468;">سعة المحرك(cm3)</div><br>
+    <div class="row" style="color: #003468;">الاسطوانات</div><br>
+    <div class="row" style="color: #003468;">عدد الابواب</div><br>
+    <div class="row" style="color: #003468;"> عدد الغيارات</div><br>
+    <div class="row" style="color: #003468;"> الاحصنة</div><br>
+    <div class="row" style="color: #003468;">وزن السيارة فارغة(كجم) </div><br>
+    
+   </div>
+
+   <div class="col"> 
+    <div class="row"></div><br><br><br>
+    <div class="row">{{onecar.fuel_type}}</div><br>
+    <div class="row">{{onecar.engine_capacity}}</div><br>
+    <div class="row">{{onecar.cylinders}}</div><br>
+    <div class="row">{{onecar.doors_number}}</div><br>
+    <div class="row">{{onecar.refills_number}}</div><br>
+    <div class="row">{{onecar.hourses}}</div><br>
+    <div class="row">{{onecar.car_weight}}</div><br>
+    
+    
+   </div>
+
+  
+</div>
+ </div>
+        
+  <div role="tabpanel" class="tab-pane fade" id="comfortable">
+  <div class="row">
+   <div class="col">
+    <div class="row"><h3 style="text-align:right;color: #003468;" >وسائل الراحة</h3></div><br>
+    <div class="row" style="color: #003468;">{% if onecar.chrome_wheels %} <li>عجلات كروم {% endif %}</li></div><br>
+    <div class="row" style="color: #003468;">{% if onecar.third_brake_light %}<li> ضوء الفرامل الثالث {% endif %}</li></div><br>
+    <div class="row" style="color: #003468;">{% if onecar.airbag %}<li> وسادة هوائية للسائق والراكب {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.side_airbags %}<li> أكياس هواء جانبية للسائق والراكب {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.adjustable_rear_headrests %}<li> مساند رأس خلفية قابلة للتعديل {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.help_braking %}<li> مساعدة الكبح {% endif %} </div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.decorative_side_thresholds %} <li>العتبات الجانبية الزخرفية السوداء {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.adjustable_front_seatbelts %}<li> أحزمة امان امامية قابلة للتعديل في الارتفاع {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.central_controller %}<li> وحدة تحكم المركزية {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.enhanced_guidance %} <li> التوجيه المعزز {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.rear_fog_light %}<li> ضوء الضباب الخلفي {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.daytime_lights %}<li> أضواء النهار {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.isofix_child_seat %}<li> مرفق ISOFIX لمقعد الطفل {% endif %} </div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.front_power_windows %}<li> نوافذ كهربائية امامية {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.rear_windows %}<li>نوافذ كهربائية خلفية {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.heat_rear_glass %}<li>الزجاج الخلفية مسخن {% endif %}</div><br></li>
+    <div class="row" style="color: #003468;">{% if onecar.external_handles %}<li>مقابض خارجية باللون الأسود{% endif %}</div><br></li>
+    <div class="row"style="color: #003468;">{% if onecar.drink_holder %}<li> حامل الشراب امامية {% endif %}</div><br></li>
+    <div class="row"style="color: #003468;">{% if onecar.radio_antennas_loudspeakers %}<li> معدات مسبقة للإذاعة والهوائي ومكبرات الصوت {% endif %}</div><br></li>
+    <div class="row"style="color: #003468;">{% if onecar.seat_belts %} <li>شدادات حزام الأمان {% endif %}</div><br></li>
+    <div class="row"style="color: #003468;">{% if onecar.door_low_storage %}<li>تخزين منخفض للباب {% endif %}</div><br></li>
+    <div class="row"style="color: #003468;">{% if onecar.dashboard_store %} <li>تخزين لوحة البيانات {% endif %}</div><br></li>
+    <div class="row"style="color: #003468;">{% if onecar.exterior_mirrors %}<li> المرايا الخارجية باللون الأسود {% endif %}</li></div><br>
+    
+   </div>
+
+        
+   <div class="col"> 
+    <div class="row" style="color: #003468;"></div><br><br><br>
+
+    <div class="row"style="color: #003468;">{% if onecar.exterior_mirrors_adjustable %} <li>مرايا خارجية قابلة للتعديل من الداخل {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.tire_repair_kit %} <li>مجموعة إصلاح الإطارات (تناسب الإطارات) {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.anti_lock_braking %}<li> نظام المكابح المانعة للانغلاق (ABS) {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.immobilizer_system %}<li> نظام منع الحركة {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.central_locking %} <li>قفل مركزي مع جهاز التحكم عن بعد {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.glove_box %} <li>علبة القفازات {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.colorful_windows %}<li> نوافذ ملون فيمه {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.front_central_armrest %}<li> مسند الذراع المركزي الامامي {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.roof_rails %}<li> قضبان السقف {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.ashtrays_cigarette_lighters %}<li> مطافئ السجائر ولاعات السجائر {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.anti_slip_chains %} <li>سلاسل مضادة للانزلاق {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.conditioning %} <li>تكييف {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.back_sensitive %}<li>  حساس رجوع {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.seven_pin_ball_bearing_connector %}<li> أداة توصيل مع رأس كروي ثابت ذو 7 أقطاب {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.trunk_network_separated %}<li> شبكة فصل في الجذع {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.navigation_system %}<li>  نظام الملاحة {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.computer %}<li> كمبيوتر {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.radio %}<li> راديو {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.cd_mp3_player %}<li>  مشغل سي دي و MP3 {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.backup_frame %}<li> الإطار الاحتياطي {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.front_seat_heating %}<li> تسخين المقاعد الأمامية {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.steering_wheel_adjustable %}<li> عجلة قيادة قابلة للضبط {% endif %}</li></div><br>
+    <div class="row"style="color: #003468;">{% if onecar.abs_brakes %}<li> فرامل ABS {% endif %}</li></div><br>
+    
+   </div>
+</div>
+</div>
+
+  </div>
+</div>	
+
+</div></div></div>
+
+<script></script>
+{% endblock %}

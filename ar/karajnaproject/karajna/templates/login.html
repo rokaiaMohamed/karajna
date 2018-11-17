@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+<div class="hub hub-auth" dir="rtl">
+    <h1 class="title-main">الدخول</h1>
+    <br>
+    <form method="post">
+       {% csrf_token %}
+    <div class="container highlighted">
+{% if form.errors %}
+    <br><p style="color: red; text-align:right;"> البريد الالكترونى والرقم السرى غير موجودان , الرجاء المحاولة مرة أخرى</p>
+{% endif %}
+            <div class="container-content" style="float:right; "><br>
+                        
+
+                            <div class="part-line  ">
+                                <label style="float:right; "class="line-label" for="user">
+                                                                                              البريد الالكترونى أو اسم المستخدم:
+                                </label>
+                                <div class="control">
+                                   <input style="float:right; " class="text email form-control"  type="text" name="username" id="id_username"  />
+                                </div>
+                            </div>
+                            <div class="part-line  ">
+                                <label style="float:right; "class="line-label" for="password">
+                                    الرقم السرى:
+                                </label><br>
+                                <div class="control">
+                                    <input style=" margin-left:120px; "type="password" class="text form-control"name="password"  id="id_password"/>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="part-line button-line">
+                                <div class="control">
+                                    <button type="submit"class="btn btn-info" ><span class="button-text">دخول</span></button>
+                                    <a href="{% url 'signup' %}"> هل انت جديد بالموقع ؟ التسجيل الأن </a>
+
+                                </div>
+
+                            </div>
+                                    <a style="float:right; " href="{% url 'password_reset' %}"> هل نسيت الرقم السرى  </a>
+             </div>
+    </div>
+    </form>
+</div>
+<div></div>
+
+
+
+
+
+<style>
+.hub .container {
+    position: relative;
+    zoom: 1;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 4px solid;
+    border-color: #d8d8d8 #d8d8d8 #bbb #d8d8d8;
+}
+.hub .container.highlighted {
+    background: #fbfbfb;
+}
+.hub .container .container-content {
+    position: relative;
+    zoom: 1;
+    padding: 14px 14px;
+}
+
+.title-secondary{width:70%;display:inline-block ; margin-bottom:4px ; margin-left:80px;}
+.container.highlighted{height:370px}
+
+.container{border:0}
+
+</style>
+{% endblock %}

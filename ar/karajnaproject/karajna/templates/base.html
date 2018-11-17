@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<!-- 
+##############################################################################
+# Copyright (C) Kinan KAZAN - All Rights Reserved
+# Unauthorized copying of this file and project, 
+# via any medium is strictly prohibited
+# Proprietary and confidential
+# Written by Kinan KAZAN, 21/06/2018
+# NOTE : All media owned by a second party will be removed during 
+# the development period.
+##############################################################################
+##############################################################################
+# Draft Design V1.2 
+##############################################################################
+-->
+<head>
+    <!-- Required meta tags for Bootstrap v4.1.0 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> karajna.com </title>
+{% load static %}
+    <!-- Bootstrap v4.1.0 ينصح بوضعه أول الملف-->
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+
+
+</head>
+
+<body >
+    <!-- box-1 for add -->
+    <!-- for test -->
+    <div class="container">
+        <!--<div class="col-md-12 " >TOP-ADD</div>-->
+        <br>
+    </div>
+    
+    <!-- box-2 for head -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 " >
+                <!-- languages -->
+                <ul class="languages">    
+                <li class="language orange-word" >
+<!--                    يتحول الى لينك عندما يكون الموقع باللغة الانكليزية وذالك للانتقال للعربي-->
+                    ar
+                </li>
+                <li class="language">
+                    <a href="" >en</a>
+                </li>
+                </ul >
+                <!-- account-links -->        
+                <ul class="account-links">
+                    {% if user.is_authenticated %}
+                    <li class="account-link">           
+                        <a href="http://www.karajna.com/ar/member/insertion">
+                            <span ></span> سلة التسوق <span class="orange-word">(0)</span>
+                        </a>
+                    </li>
+                    <li class="account-link">
+                        <a href="http://www.karajna.com/ar/my-account/favorites">
+                            <span ></span>قائمة المفضلة<span class="orange-word" >(0)</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="account-link">
+                        {% if user.is_authenticated %}
+                        <a style="color:#06e"id="username">
+                            <span ></span> {{ user.username }}
+                        </a>
+                        {% else %}
+                        <a href="{% url 'login'%}">
+                            <span ></span> الدخول</a>
+                        <a href="{% url 'signup'%}">
+                            <span ></span> التسجيل</a>
+                               {% endif %}       
+                    </li>
+                </ul>                
+
+            </div>
+            <div class="col-md-6 " >
+                <img class="logo" src="/static/images/karajna.png">
+                <div class="word">اليوم اكثر من <br><span class="orange-word">156'343</span> سيارة </div>
+            </div> 
+        </div>
+    </div>
+    <!-- box-3 for NAVBAR -->
+    <div class="container " >
+
+        <ul class="nav nav-tabs " id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab"  href="{% url 'home' %}" role="tab" aria-controls="home" aria-selected="true">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#search" role="tab" arida-controls="search" aria-selected="false">بحث</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#new-cars" role="tab" aria-controls="new-cars" aria-selected="false">سيارات جديدة</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="profile-tab"  href="{% url 'before_sell' %}" role="tab" aria-controls="sell-car" aria-selected="false"">بيع</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#blog" role="tab" aria-controls="blog" aria-selected="false"">مجلة</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " id="profile-tab" data-toggle="tab" href="#my-account" role="tab" aria-controls="my-account" aria-selected="false">كراجي</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent" >
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">الرئيسية</div>
+            <div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="profile-tab">
+                <br>
+                <div class="row arb">
+                    <div class="col-sm-3 " >
+                        <strong>
+                        مستعمل
+                        </strong>
+                        <br>
+                        <a href="{% url 'home' %}">بحث سريع</a>
+                        <br>
+                        <a href="http://www.karajna.com/ar/advanced-car-search">بحث متقدم</a>
+
+                    </div>
+                    <div class="col-sm-3 " >
+
+                        <strong>
+                        مكاتب سيارات
+                        </strong>
+                        <br>
+                        <a href="http://www.karajna.com/ar/car-dealers/search">بحث عن مكتب سيارات </a>
+                    </div>
+                    <div class="col-sm-3 " >
+
+                        <strong>
+                        أخر
+                        </strong>
+                        <br>
+                        <a href="http://www.karajna.com/ar/parts-accessories">قطع غيار واكسسوارات</a>
+                        <br>
+                        <a href="http://www.karajna.com/ar/motors">بحث عن دراجة نارية</a>
+                        <br>
+                        <a href="http://www.karajna.com/ar/evaluation-car">تقييم السيارة</a>
+
+                    </div>
+                </div>
+<!--                    اضافة خط افقي يمكن التحكم بمواصفاته عند اضافة css-->
+                <hr>
+            </div>
+            <div class="tab-pane fade" id="new-cars" role="tabpanel" aria-labelledby="contact-tab">سيارات جديدة</div>
+            <div class="tab-pane fade" id="sell-car" role="tabpanel" aria-labelledby="contact-tab">
+                يفترض هنا  أن يتم تحميل صفحة اضافة عرض بيع جديد
+            </div>
+            <div class="tab-pane fade" id="blog" role="tabpanel" aria-labelledby="contact-tab">مجلة</div>
+            <div class="tab-pane fade" id="my-account" role="tabpanel" aria-labelledby="contact-tab">
+                <br>
+                <div class="row arb">
+                    <div class="col-sm-3 " >
+                        <strong>
+                        إدارة عروض البيع
+                        </strong>
+                        <br>
+                        <a href="{% url 'carlist' %}"> عروض السيارات<span class="orange-word">({{number}})</span></a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/my-motors">عروض الدراجات النارية (0)</a>
+
+                    </div>
+                    <div class="col-sm-3 " >
+                        <strong>
+                        بيع
+                        </strong>
+                        <br>
+                        <a href="{% url 'before_sell' %}">تسجيل عرض بيع جديد</a>
+
+                    </div>
+                    <div class="col-sm-3 " >
+                        <strong>
+                        أخر
+                        </strong>
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/favorites">قائمة المفضلة</a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/search-request">طلبات بحث</a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/payment-methods">خدمة الدفع</a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/support-ticket">طلب مساعدة</a>
+
+                    </div>
+                    <div class="col-sm-3 " >
+                        <div class="" >
+                        <strong > 
+                        إعدادات الحساب
+                        </strong>
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/change-email">البريد الالكتروني</a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/change-address">معلومات الاتصال</a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/change-password">تغيير كلمة السر</a>
+
+                        <br>
+                        <a href="http://www.karajna.com/ar/my-account/change-my-account-settings">إعدادات الحساب</a>
+
+                        <br>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" >تسجيل خروج</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+<!--                    اضافة خط افقي يمكن التحكم بمواصفاته عند اضافة css-->
+                <hr>                    
+            </div>
+        </div>
+{% block content %}
+
+    {% endblock  %}
+    </div>
+     
+  
+     
+
+                    
+    <div>
+    <br> 
+    
+
+    </div>
+    
+    <!-- box-8 for footer -->
+    <div class="container">
+        <br>
+        THE footer
+    </div>    
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- JavaScript  for Bootstrap v4.1.0 ينصح بوضعه في نهاية جسم الملف-->
+    <!-- jquery and popper  for Bootstrap v4.1.0 يفضل تحويلهم الى ملفات ضمن سرفرنا -->
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<style>
+</style>
+<script>
+$('#username').click(function() {
+    $('#myTab a:last').tab('show')
+});
+  
+</script>
+</body>
+</html>
+

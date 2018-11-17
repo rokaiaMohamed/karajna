@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2 style="text-align:right;color:#003468;">عروض السيارات لدى  {{user}} </h2><br>
+    <div class="card">    
+                    {% for car in karaj %}
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-xs-2 col-md-2">
+                        <!--<img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew">-->
+                        <img  src="{{ car.image1.url }}" width=200px hight=200px>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'cardata' car.id %}"><h4 class="product-name"><strong>{{ car.brand }}</strong></h4></a>
+                        <h5><small>  اللون الخارجى :{{ car.external_color }} , نوع الوقود :{{ car.fuel_type }}  </small></h5>
+                        <h5><small> ناقل الحركة :{{car.motion_movement}} , فئة السيارة : {{ car.class_car}}</small></h5>
+                    </div>
+                    <div class="col-xs-6 col-md-4 row">
+                        <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
+                            <h6><strong>{{ car.price }} <span class="text-muted">ل.س</span></strong></h6><br><br><br><br><br><br>
+
+                        </div>
+
+                        <h5><small> {{ car.distance }} كم</small></h5>
+
+                        <div class="col ">
+                            <h5><small>{{ car.production_date }}</small></h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                   <div class="col"></div>
+                   <div class="col"></div>
+                   <div class="col">
+                      <button class="btn btn-danger"><a style="color:#fff;"href="{% url 'car_delete' car.pk  %}">حذف الاعلان</a>
+                   </div>
+                   <div class="col">
+                      <button class="btn btn-warning"><a style="color:#fff;"href="{% url 'car_change' car.pk %}">تعديل الاعلان</a>
+                   </div>
+                   <div class="col">
+                      <button class="btn btn-info"><a style="text-decorations:none;color:#fff;"href="{% url 'cardata' car.id %}">عرض الاعلان</a>
+                   </div>
+                </div>
+<hr>
+            </div>
+                   {% endfor %}
+        </div>
+
+        <br>
+
+
+		
+{% endblock %}
+
