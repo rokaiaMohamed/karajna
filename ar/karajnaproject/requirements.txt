@@ -1,2 +1,2 @@
-Django==2.0.6
+//Django==2.0.6
 django-filter==0.13.0
